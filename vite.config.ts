@@ -24,7 +24,7 @@ export default defineConfig({
           }
         ]
       },
-      includeAssets: ['favicon.ico', 'apple-touch-icon.png', 'masked-icon.svg'],
+      includeAssets: ['favicon.ico', 'apple-touch-icon.png', 'pwa-192x192.png', 'pwa-512x512.png'],
       manifest: {
         name: 'Welding Simulator PWA',
         short_name: 'WeldSim',
@@ -33,24 +33,29 @@ export default defineConfig({
         background_color: '#ffffff',
         display: 'standalone',
         orientation: 'portrait',
-        scope: '/',
-        start_url: '/',
+        scope: '/Simulador/',
+        start_url: '/Simulador/',
+        lang: 'es',
+        dir: 'ltr',
+        categories: ['education', 'productivity'],
         icons: [
           {
-            src: 'pwa-192x192.png',
+            src: '/Simulador/pwa-192x192.png',
             sizes: '192x192',
-            type: 'image/png'
+            type: 'image/png',
+            purpose: 'any'
           },
           {
-            src: 'pwa-512x512.png',
-            sizes: '512x512',
-            type: 'image/png'
-          },
-          {
-            src: 'pwa-512x512.png',
+            src: '/Simulador/pwa-512x512.png',
             sizes: '512x512',
             type: 'image/png',
-            purpose: 'any maskable'
+            purpose: 'any'
+          },
+          {
+            src: '/Simulador/pwa-512x512.png',
+            sizes: '512x512',
+            type: 'image/png',
+            purpose: 'maskable'
           }
         ]
       }
@@ -61,6 +66,7 @@ export default defineConfig({
       '@': resolve(__dirname, './src'),
     },
   },
+  base: '/Simulador/',
   server: {
     host: true,
     port: 3000
@@ -68,6 +74,8 @@ export default defineConfig({
   build: {
     target: 'esnext',
     minify: 'terser',
+    outDir: 'dist',
+    assetsDir: 'assets',
     rollupOptions: {
       output: {
         manualChunks: {

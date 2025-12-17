@@ -5,7 +5,7 @@
 
 import { WeldingSession, CertificateData, UserProfile } from '../types'
 
-const GOOGLE_SHEETS_API_BASE = 'https://script.google.com/macros/s/AKfycbzP6E7CkcBIUnZTbqPl9NKmzjvfkucDAmh0fnjCbFsnz35U7wz6p_RrAdb24QJYnALF/exec'
+const GOOGLE_SHEETS_API_BASE = 'YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL'
 
 export interface SheetsConfig {
   spreadsheetId: string
